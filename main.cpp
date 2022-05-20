@@ -10,9 +10,28 @@
  */
 
 #include <stdio.h>
+#include <mutex>
 
+#include "src/core/application.h"
+#include "src/core/systhread.h"
+
+class TestThread:public mysys::Thread{
+
+protected:
+  void run()override{
+    printf("this is a new thread\n");
+    exec();
+  }
+
+};
 int main(int argc, char* argv[]) {
-  printf("hello world\n");
+  mysys::Application app;
 
-  return 0;
+  TestThread th;
+  TestThread th2;
+  th.start();
+  th2.start();
+  th.wait();
+  th2.wait();
+  return app.exec();
 }
