@@ -13,12 +13,17 @@
 
 #include <assert.h>
 #include "systhread.h"
+#include "easylogging++.h"
+
+INITIALIZE_EASYLOGGINGPP
 
 namespace mysys {
 
 
 Application::Application():Object() {
     self = this;
+
+    // LOG(INFO) << "My first info log using default logger";
 }
 
 Application::~Application() {

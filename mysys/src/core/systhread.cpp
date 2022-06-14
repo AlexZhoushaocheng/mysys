@@ -94,6 +94,8 @@ void Thread::run() {
     exec();
 }
 
+/*****************************************/
+
 void AdoptedThread::run() {
     // should never be called
 }

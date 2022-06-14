@@ -8,9 +8,11 @@
  * @copyright Copyright (c) 2022
  * 
  */
+
 #include "eventdispatcher.h"
 
 namespace mysys {
+EventDispatcher::EventDispatcher() {}
 
 void EventDispatcher::processEvent(int* count) {}
 

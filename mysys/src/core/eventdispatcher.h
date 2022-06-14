@@ -11,11 +11,20 @@
 #ifndef MYSYS_SRC_CORE_EVENTDISPATCHER_H_
 #define MYSYS_SRC_CORE_EVENTDISPATCHER_H_
 
+#include "notifier/basepoll.h"
+#include "notifier/eventnotifier.h"
+
 namespace mysys {
 
 class EventDispatcher {
  public:
+  EventDispatcher();
+  ~EventDispatcher() {}
   void processEvent(int* count);
+
+ private:
+  BasePoll base_poll_;
+  // EventNotifier notifier_;
 };
 
 }  // namespace mysys

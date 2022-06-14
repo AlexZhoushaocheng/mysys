@@ -9,21 +9,28 @@
  *
  */
 
-#ifndef MYSYS_SRC_CORE_BASEPOLL_H_
-#define MYSYS_SRC_CORE_BASEPOLL_H_
+#ifndef MYSYS_SRC_CORE_NOTIFIER_BASEPOLL_H_
+#define MYSYS_SRC_CORE_NOTIFIER_BASEPOLL_H_
 
 #include <sys/epoll.h>
 
 namespace mysys {
+class EventNotifier;
+
 class BasePoll {
  public:
   BasePoll();
 
+  ~BasePoll();
+
   int poll();
+
+  void update(EventNotifier *notifier);
+
  private:
   int epollfd{-1};
   epoll_event ev;
 };
 }  // namespace mysys
 
-#endif  // MYSYS_SRC_CORE_BASEPOLL_H_
+#endif  // MYSYS_SRC_CORE_NOTIFIER_BASEPOLL_H_
